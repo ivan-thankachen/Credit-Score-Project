@@ -1,0 +1,1 @@
+This folder contains potential libraries used for the Credit Score Program Project.
