@@ -6,4 +6,5 @@ Ivan Thankachen - SE 350 - Credit Score Project
 3. My Github account and repository is set up, which will be linked below.
 4. My public repository is Credit-Score-Project.
 5. Within src/HelloWorld/Hello_World, there is a java file called HelloWorld.java. (Video provided).
+6. The entry point to my project will be Credit-Score-Project/src/Credit_Score_Project/User.java.
 
