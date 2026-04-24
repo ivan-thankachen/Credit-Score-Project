@@ -2,32 +2,49 @@
 /**
  * Write a description of class User here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * Ivan Thankachen 
+ * User Class
  */
+
+import java.util.Scanner;
 public class User
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class User
-     */
-    public User()
+    private static String choose_credit()
     {
-        // initialise instance variables
-        x = 0;
+        int selection = 0;
+        String val = "temp";
+        Scanner scan = new Scanner(System.in);
+        
+        while(selection != 4)
+        {
+            System.out.print("Please select the credit score receiver used.\n" + 
+        "1) Equifax\n" + "2) Experian\n" + "3) TransUnion\n" + "4) Exit");
+        
+        selection = scan.nextInt();
+        
+        if (selection < 1 || selection > 4)
+        {
+            System.out.print("Try again.");
+        }
+        }
+        
+    
+        
+        
+        
+        
+    
+        return val;
+        
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
+    // instance variables - replace the example below with your own
+    public static void main(String[] args)
     {
-        // put your code here
-        return x + y;
+        String choice;
+        choice = choose_credit();
+        
+        
+        
+        
     }
 }
