@@ -17,4 +17,9 @@ public class AdminState implements LoginState
         System.out.println("Bye! Have a nice day!");
         
     }
+    public void choosePermissions()
+    {
+        System.out.println("Please cycle through the admin permissions.");
+        //Add database controls and cycle through users.
+    }
 }
