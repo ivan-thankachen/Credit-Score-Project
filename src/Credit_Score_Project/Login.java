@@ -5,9 +5,13 @@ import java.util.Scanner;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Login
+public abstract class Login
 {
     // instance variables - replace the example below with your own
+    
+    
+    
+    /*
     String user = "guest";
     String password = "123";
     Scanner receive = new Scanner(System.in);
@@ -25,4 +29,5 @@ public class Login
         this.user = receive.nextLine();
         this.password = receive.nextLine();
     }
+    */
 }
