@@ -10,23 +10,24 @@ public class CreditScoreBuilder implements Builder
     private Credit_Score credit = new Credit_Score(); 
     Scanner scan = new Scanner(System.in); 
     
-    public void buildpaymentHistory()
+    
+    public void buildpaymentHistory(float input)
     {
 
     }
-    public void buildamounts_owed()
+    public void buildamounts_owed(float input)
     {
     
     }
-    public void buildcredit_history()
+    public void buildcredit_history(float input)
     {
         
     }
-    public void buildcredit_mix()
+    public void buildcredit_mix(float input)
     {
         
     }
-    public void buildnewcredit()
+    public void buildnewcredit(float input)
     {
         
     }

@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 /**
  * Write a description of class CreditScoreDirector here.
  *
@@ -7,13 +7,16 @@
  */
 public class CreditScoreDirector
 {
-    // instance variables - replace the example below with your own
+    private ArrayList<Command> commands = new ArrayList<>();
+    public void addComand(Command command)
+    {
+        commands.add(command);
+    }
     public void construct(Builder builder)
     {
-        builder.buildpaymentHistory();
-        builder.buildamounts_owed();
-        builder.buildcredit_history();
-        builder.buildcredit_mix();
-        builder.buildnewcredit();
+        for(Command cmd:commands)
+        {
+            cmd.execute((CreditScoreBuilder) builder);
+        }
     }
 }

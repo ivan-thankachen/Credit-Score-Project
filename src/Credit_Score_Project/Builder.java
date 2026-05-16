@@ -7,11 +7,11 @@
  */
 public interface Builder
 {
-    void buildpaymentHistory();
-    void buildamounts_owed();
-    void buildcredit_history();
-    void buildcredit_mix();
-    void buildnewcredit();
+    void buildpaymentHistory(float input);
+    void buildamounts_owed(float input);
+    void buildcredit_history(float input);
+    void buildcredit_mix(float input);
+    void buildnewcredit(float input);
     
     
 }
