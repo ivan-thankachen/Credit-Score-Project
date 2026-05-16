@@ -10,9 +10,8 @@ import java.util.Random;
 public class Credit_Score
 {
     // instance variables - replace the example below with your own
-    public Credit_Score(String credit)
+    public Credit_Score()
     {
-        String credit_provider = credit;
     }
     int credit_score;
     float payment_history;
