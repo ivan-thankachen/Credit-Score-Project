@@ -11,10 +11,11 @@ public class LogOutState implements LoginState
 
     public void login()
     {
-        
+        System.out.println("Hello! Would you like to calculate your credit score?");
     }
     public void logout()
     {
+        System.out.println("Bye! Have a nice day!");
         
     }
 }
