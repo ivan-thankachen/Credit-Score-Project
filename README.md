@@ -8,3 +8,5 @@ Ivan Thankachen - SE 350 - Credit Score Project
 5. Within src/HelloWorld/Hello_World, there is a java file called HelloWorld.java. (Video provided).
 6. The entry point to my project will be Credit-Score-Project/src/Credit_Score_Project/User.java.
 
+5/15/25 - Sprint 3
+I apologize for the late submission of Sprint 3 as I have definitely been less punctual recently when it comes to assignments. I feel as though that reflects on my project currently as I have the design patterns implemented but I need to spend time thinking about how I could properly connect that to user. For the final submission, I want to have a split between user and admin with different permission and a way to authenticate logins. I also want a proper way of generating credit score factors. 
