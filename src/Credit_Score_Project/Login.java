@@ -11,5 +11,9 @@ public abstract class Login
     
     public abstract void loginSystem();
     
+    public abstract void storeLoginData(String user, String pass);
+    
+    public abstract boolean checkLoginData(String user, String pass);
+    
     
 }

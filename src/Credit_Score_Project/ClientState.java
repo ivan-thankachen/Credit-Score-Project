@@ -1,4 +1,4 @@
-
+import java.util.*;
 /**
  * Write a description of class LogOutState here.
  *
@@ -7,11 +7,21 @@
  */
 public class ClientState implements LoginState
 {
-    // instance variables - replace the example below with your own
+    Scanner scan = new Scanner(System.in);
+    private String val;
+    CreditScoreDirector cd = new CreditScoreDirector();
+    CreditScoreBuilder cb = new CreditScoreBuilder();
 
     public void login()
     {
-        System.out.println("Hello! Would you like to calculate your credit score?");
+        System.out.println("Hello! Would you like to calculate your credit score? (y/n) ");
+        val = scan.nextLine();
+        if(val.equals("y"))
+        {
+            cd.addCommand();
+            cd.construct(cb);
+        }
+        
     }
     public void logout()
     {

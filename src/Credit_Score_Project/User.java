@@ -9,6 +9,7 @@
 import java.util.Scanner;
 public class User
 {
+    /*
     private static String choose_credit()
     {
         int selection = 0;
@@ -55,18 +56,33 @@ public class User
             return val;
         
     }
+    */
     // instance variables - replace the example below with your own
     public static void main(String[] args)
     {
-        String choice;
-        choice = choose_credit();
-        if(choice == "exit")
+        Scanner scan = new Scanner(System.in);
+        String use;
+        boolean exit = false;
+        System.out.println("Welcome to the Credit Score Program! Are you an admin or a user?");
+        use = scan.nextLine();
+        if(use.equals("admin") || use.equals("Admin"))
         {
-            System.out.println("Goodbye!");
+            AdminFactory adFac = new AdminFactory();
+            Login ad = adFac.createLogin();
+            ad.loginSystem();
         }
         
+        else if(use.equals("client") || use.equals("Client"))
+        {
+            ClientFactory clFac = new ClientFactory();
+            Login cl = clFac.createLogin();
+            cl.loginSystem();
+        }
         
-        
+        else
+        {
+            System.out.println("Please try again.");
+        }
         
     }
 }

@@ -7,10 +7,10 @@ import java.util.Random;
  */
 public class AmountsOwedCommand implements Command
 {
-    // instance variables - replace the example below with your own
+    float inp;
 
     public void execute(CreditScoreBuilder builder)
     {
-        
+        builder.buildamounts_owed(inp);
     }
 }
