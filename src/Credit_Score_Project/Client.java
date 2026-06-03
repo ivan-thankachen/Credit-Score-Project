@@ -11,7 +11,8 @@ public class Client extends Login
     
     public void storeLoginData(String u, String p)
     {
-        users.put(u,p);
+        ProxyFile f = new RealFile();
+        f.writeToFile(u,p);
     }
     
     public boolean checkLoginData(String u, String p)
@@ -40,7 +41,7 @@ public class Client extends Login
         
         System.out.println("Welcome! Are you new to the program? (yes/no) ");
         val = scan.nextLine();
-        if(val == "yes")
+        if(val.equals("yes"))
         {
             System.out.println("Please enter your username.");
             user = scan.nextLine();
