@@ -20,4 +20,10 @@ public class ProxyFile implements FileInterface
         realFile.writetoFile(u,p);
     }
     
+    public boolean readFile(String u, String p)
+    {
+        boolean clientcheck = realFile.readFile(u,p);
+        return clientcheck;
+    }
+    
 }

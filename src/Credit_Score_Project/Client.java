@@ -7,27 +7,18 @@ import java.util.*;
  */
 public class Client extends Login
 {
-    private Map<String,String> users = new HashMap<>();
     
     public void storeLoginData(String u, String p)
     {
-        ProxyFile f = new RealFile();
-        f.writeToFile(u,p);
+        ProxyFile f = new ProxyFile();
+        f.writetoFile(u,p);
     }
     
     public boolean checkLoginData(String u, String p)
     {
-        boolean authenticate = false;
-        if(users.containsValue(u) == false && users.containsValue(p) == false)
-        {
-            return authenticate;
-        }
+        ProxyFile f = new ProxyFile();
+        return f.readFile(u,p);
         
-        else
-        {
-            authenticate = true;
-            return authenticate;
-        }
     }
     
     public void loginSystem()
