@@ -23,6 +23,47 @@ public class Client extends Login
     
     public boolean checkParameters(String u, String p)
     {
+        boolean user_length = (u.length() >= 8 && u.length() <= 15);
+        boolean pass_length = (p.length() >= 10 && p.length() <= 15);
+        boolean colon;
+        boolean firstnum;
+        boolean paramcheck;
+        
+        ParameterContext context = new ParameterContext();
+        context.set(new ColonState());
+        
+        
+        context.set(new FirstCharNumState());
+        
+        
+        
+        
+        if(!user_length)
+        {
+            System.out.println("The username doesn't fit the 8 - 15 character requirement.");
+        }
+        
+        else if(!pass_length)
+        {
+            System.out.println("The username doesn't fit the 10 - 15 character requirement.");
+        }
+        
+        else if(!user_length && !pass_length)
+        {
+            System.out.println("The username doesn't fit the 8 - 15 character requirement.");
+            System.out.println("The password doesn't fit the 10 - 15 character requirement.");
+        }
+        
+        else
+        {
+            colon = context.check(u,p);
+            firstnum = context.check(u,p);
+            paramcheck = colon && firstnum;
+        }
+        
+        return user_length && pass_length && paramcheck;
+        
+        
         
     }
     
@@ -48,9 +89,9 @@ public class Client extends Login
             
             if(checkParameters(user,pass))
             {
-            storeLoginData(user,pass);
-            loginContext.setLoginStrategy(new ClientStrategy());
-            loginContext.performLogin();
+                storeLoginData(user,pass);
+                loginContext.setLoginStrategy(new ClientStrategy());
+                loginContext.performLogin();
             }
             
             else
@@ -83,13 +124,12 @@ public class Client extends Login
             check = checkLoginData(user,pass);
             if(check == true)
             {
-            loginContext.setLoginStrategy(new ClientStrategy());
-            loginContext.performLogin();
+                loginContext.setLoginStrategy(new ClientStrategy());
+                loginContext.performLogin();
             }
             
             else
             {
-                System.out.println("Is this triggered?");
                 loginContext.setLoginStrategy(new ClientStrategy());
                 loginContext.performLogout();            
             }
