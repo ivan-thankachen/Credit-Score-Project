@@ -17,3 +17,12 @@ I apologize for the late submission of Sprint 3 as I have definitely been less p
 5/15/26
 Sprint 4
 I need to work on connecting all components to user, diagram a framework for a sure plan, and work on authentication and database grabbing for logins and corresponding credit scores.
+
+
+
+
+
+Clear List of Design Patterns:
+Sprint 3: Factory Pattern and Builder Pattern
+Sprint 4: Command Pattern and Strategy Pattern
+Spring 5: Proxy Pattern and State Pattern
