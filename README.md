@@ -23,6 +23,6 @@ I need to work on connecting all components to user, diagram a framework for a s
 
 
 Clear List of Design Patterns:
-Sprint 3: Factory Pattern and Builder Pattern
-Sprint 4: Command Pattern and Strategy Pattern
-Spring 5: Proxy Pattern and State Pattern
+1. Sprint 3: Factory Pattern and Builder Pattern
+2. Sprint 4: Command Pattern and Strategy Pattern
+3. Spring 5: Proxy Pattern and State Pattern
