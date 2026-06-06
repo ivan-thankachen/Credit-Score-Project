@@ -21,6 +21,11 @@ public class Client extends Login
         
     }
     
+    public boolean checkParameters(String u, String p)
+    {
+        
+    }
+    
     public void loginSystem()
     {
         String user;
@@ -29,6 +34,8 @@ public class Client extends Login
         Scanner scan = new Scanner(System.in);
         boolean check;
         boolean log;
+        boolean param;
+        LoginContext loginContext = new LoginContext();
         
         System.out.println("Welcome! Are you new to the program? (yes/no) ");
         val = scan.nextLine();
@@ -38,9 +45,34 @@ public class Client extends Login
             user = scan.nextLine();
             System.out.println("Please enter your password.");
             pass = scan.nextLine();
+            
+            if(checkParameters(user,pass))
+            {
             storeLoginData(user,pass);
-            ClientState cs = new ClientState();
-            cs.login();
+            loginContext.setLoginStrategy(new ClientStrategy());
+            loginContext.performLogin();
+            }
+            
+            else
+            {
+                param = checkParameters(user,pass);
+                while(!param)
+                {
+                    System.out.println("Please enter your username.");
+                    user = scan.nextLine();
+                    System.out.println("Please enter your password.");
+                    pass = scan.nextLine();
+                    param = checkParameters(user,pass);
+                }
+                
+                if(checkParameters(user,pass))
+                {
+                    storeLoginData(user,pass);
+                    loginContext.setLoginStrategy(new ClientStrategy());
+                    loginContext.performLogin();
+                }
+            }
+            
         }
         else
         {
@@ -51,14 +83,15 @@ public class Client extends Login
             check = checkLoginData(user,pass);
             if(check == true)
             {
-                ClientState cs = new ClientState();
-                cs.login(); 
+            loginContext.setLoginStrategy(new ClientStrategy());
+            loginContext.performLogin();
             }
             
             else
             {
-                ClientState cs = new ClientState();
-                cs.logout(); 
+                System.out.println("Is this triggered?");
+                loginContext.setLoginStrategy(new ClientStrategy());
+                loginContext.performLogout();            
             }
         }
         

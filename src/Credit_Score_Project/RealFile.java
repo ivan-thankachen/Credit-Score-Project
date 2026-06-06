@@ -30,7 +30,7 @@ public class RealFile implements FileInterface
         if(file_loaded)
         {
         try{
-        FileWriter writing = new FileWriter(storage.getName());
+        FileWriter writing = new FileWriter(storage.getName(),true);
         writing.write(u + ":" + p);
         writing.close();
     }

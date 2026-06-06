@@ -36,6 +36,7 @@ public class Admin extends Login
         String pass;
         boolean check;
         Scanner scan = new Scanner(System.in);
+        LoginContext loginContext = new LoginContext();
         
         System.out.println("Welcome back Admin. Please enter your username with special admin passkey.");
         user = scan.nextLine();
@@ -43,13 +44,13 @@ public class Admin extends Login
         check = checkLoginData(user,pass);
         if(check == true)
         {
-            AdminState as = new AdminState();
-            as.login();
+            loginContext.setLoginStrategy(new AdminStrategy());
+            loginContext.performLogin();
         }
         else
         {
-            AdminState as = new AdminState();
-            as.logout();
+            loginContext.setLoginStrategy(new AdminStrategy());
+            loginContext.performLogout();
         }
     }
     

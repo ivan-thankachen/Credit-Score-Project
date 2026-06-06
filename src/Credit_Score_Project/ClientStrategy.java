@@ -5,15 +5,19 @@ import java.util.*;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class ClientState implements LoginState
+public class ClientStrategy implements LoginStrategy
 {
     Scanner scan = new Scanner(System.in);
     private String val;
     CreditScoreDirector cd = new CreditScoreDirector();
     CreditScoreBuilder cb = new CreditScoreBuilder();
+    boolean exit = false;
 
     public void login()
     {
+        
+        
+        
         System.out.println("Hello! Would you like to calculate your credit score? (y/n) ");
         val = scan.nextLine();
         if(val.equals("y"))
@@ -21,7 +25,6 @@ public class ClientState implements LoginState
             cd.addCommand();
             cd.construct(cb);
         }
-        
     }
     public void logout()
     {

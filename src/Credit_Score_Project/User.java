@@ -16,6 +16,7 @@ public class User
         boolean exit = false;
         System.out.println("Welcome to the Credit Score Program! Are you an admin or a user?");
         use = scan.nextLine();
+        
         if(use.equals("admin") || use.equals("Admin"))
         {
             AdminFactory adFac = new AdminFactory();
