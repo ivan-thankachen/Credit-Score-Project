@@ -1,4 +1,4 @@
-
+import java.lang.*;
 /**
  * Write a description of class FirstCharNumState here.
  *
@@ -7,8 +7,16 @@
  */
 public class FirstCharNumState implements ParameterState
 {
-   public boolean handlecheck(String u, String p)
+   public boolean handlecheck(String u,String p, boolean stat)
    {
+       boolean num = Character.isDigit(u.charAt(0));
+       
+       if(num && stat)
+       {
+           System.out.println("You cannot have a number as the first character of your username.");
+       }
+       
+       return !num;
        
    }
 }

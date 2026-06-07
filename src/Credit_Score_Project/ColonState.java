@@ -7,13 +7,14 @@
  */
 public class ColonState implements ParameterState
 {
-   public boolean handlecheck(String u, String p)
+   public boolean handlecheck(String u, String p, boolean stat)
    {
-       boolean user_colon = u.indexOf(":") == -1;
-       boolean pass_colon = u.indexOf(":") == -1;
-       if(!user_colon)
+       boolean is_colon = (u.indexOf(":") == -1 && p.indexOf(":") == -1);
+       if(!is_colon && stat)
        {
            System.out.println("There cannot be any colons in your credentials.");
        }
+       
+       return is_colon;
    }
 }

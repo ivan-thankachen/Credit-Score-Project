@@ -45,7 +45,7 @@ public class Admin extends Login
         if(check == true)
         {
             loginContext.setLoginStrategy(new AdminStrategy());
-            loginContext.performLogin();
+            boolean temp = loginContext.performLogin();
         }
         else
         {

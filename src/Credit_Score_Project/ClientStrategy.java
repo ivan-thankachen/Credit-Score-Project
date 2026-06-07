@@ -11,9 +11,8 @@ public class ClientStrategy implements LoginStrategy
     private String val;
     CreditScoreDirector cd = new CreditScoreDirector();
     CreditScoreBuilder cb = new CreditScoreBuilder();
-    boolean exit = false;
 
-    public void login()
+    public boolean login()
     {
         
         
@@ -24,7 +23,14 @@ public class ClientStrategy implements LoginStrategy
         {
             cd.addCommand();
             cd.construct(cb);
+            return true;
         }
+        
+        else
+        {
+            return true;
+        }
+        
     }
     public void logout()
     {

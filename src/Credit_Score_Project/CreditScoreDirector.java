@@ -15,11 +15,11 @@ public class CreditScoreDirector
     PaymentHistoryCommand c5 = new PaymentHistoryCommand();
     public void addCommand()
     {
-        commands.add(c1);
+        commands.add(c5);
         commands.add(c2);
         commands.add(c3);
+        commands.add(c1);
         commands.add(c4);
-        commands.add(c5);
     }
     public void construct(Builder builder)
     {

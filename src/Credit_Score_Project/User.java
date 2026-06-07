@@ -14,7 +14,7 @@ public class User
         Scanner scan = new Scanner(System.in);
         String use;
         boolean exit = false;
-        System.out.println("Welcome to the Credit Score Program! Are you an admin or a user?");
+        System.out.println("Welcome to the Credit Score Program! Are you an admin or a client?");
         use = scan.nextLine();
         
         if(use.equals("admin") || use.equals("Admin"))

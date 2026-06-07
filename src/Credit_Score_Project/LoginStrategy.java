@@ -7,6 +7,6 @@
  */
 public interface LoginStrategy
 {
-    public void login();
+    public boolean login();
     public void logout();
 }

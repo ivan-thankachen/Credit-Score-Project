@@ -8,9 +8,10 @@
 public class AdminStrategy implements LoginStrategy
 {
     // instance variables - replace the example below with your own
-    public void login()
+    public boolean login()
     {
         System.out.println("Welcome back! What permissions would you like to access?");
+        return true;
     }
     public void logout()
     {

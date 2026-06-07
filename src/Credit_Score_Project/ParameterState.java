@@ -7,5 +7,5 @@
  */
 public interface ParameterState
 {
-    public boolean handlecheck(String u, String p);
+    public boolean handlecheck(String u, String p, boolean stat);
 }

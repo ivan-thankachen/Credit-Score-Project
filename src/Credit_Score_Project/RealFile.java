@@ -31,7 +31,7 @@ public class RealFile implements FileInterface
         {
         try{
         FileWriter writing = new FileWriter(storage.getName(),true);
-        writing.write(u + ":" + p);
+        writing.write(u + ":" + p + "\n");
         writing.close();
     }
     

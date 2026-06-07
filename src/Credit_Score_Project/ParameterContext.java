@@ -15,9 +15,9 @@ public class ParameterContext
         this.state = state;
     }
     
-    public boolean check(String u, String p)
+    public boolean check(String u, String p, boolean stat)
     {
-        val = this.state.handlecheck(u,p);
+        val = this.state.handlecheck(u,p,stat);
         return val;
     }
 }
