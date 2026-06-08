@@ -8,22 +8,27 @@ public class RealFile implements FileInterface
     private boolean file_loaded = false;
     public RealFile()
     {
-        try
+        if(!storage.exists() && !score_file.exists())
+        {
+            try
+            {
+                storage.createNewFile();
+                score_file.createNewFile();
+                file_loaded = true;
+            }
+            catch (IOException e)
+            {
+                System.out.println("**************************************");
+                System.out.println("Files can't be created.");
+                System.out.println("**************************************\n\n");
+            }
+        }
+        else
         {
             if(storage.exists())
             {
-                 file_loaded = true;
+                file_loaded = true;
             }
-            else {
-                throw new IOException();
-            }
-        }
-        
-        catch (IOException e)
-        {
-            System.out.println("**************************************");
-            System.out.println("File isn't loading, consult admin.");
-            System.out.println("**************************************\n\n");
         }
     }
     
