@@ -26,3 +26,6 @@ Clear List of Design Patterns:
 1. Sprint 3: Factory Pattern and Builder Pattern
 2. Sprint 4: Command Pattern and Strategy Pattern
 3. Spring 5: Proxy Pattern and State Pattern
+
+
+Please read the README.txt in src!
