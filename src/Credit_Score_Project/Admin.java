@@ -28,7 +28,7 @@ public class Admin extends Login
         while(!exit) {
         System.out.println("**************************************");
         System.out.println("Welcome back admin! Please type in your designated password!");
-        System.out.println("**************************************");
+        System.out.println("**************************************\n\n");
         val = scan.nextLine();
         boolean successful = checkLoginData(null,val);
         if(successful)
@@ -39,6 +39,9 @@ public class Admin extends Login
         }
         else
         {
+            System.out.println("**************************************");
+            System.out.println("Incorrect user password.");
+            System.out.println("**************************************\n\n");
             admin.setLoginStrategy(new AdminStrategy());
             admin.performLogout();
             exit = true;
