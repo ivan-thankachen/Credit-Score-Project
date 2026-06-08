@@ -7,8 +7,8 @@ import java.util.*;
  */
 public class Admin extends Login
 {
-    private Map<String,String> users = new HashMap<>();
-    
+    Scanner scan = new Scanner(System.in);
+    LoginContext admin = new LoginContext();
     public void storeLoginData(String u, String p)
     {
         return;
@@ -16,42 +16,34 @@ public class Admin extends Login
     
     public boolean checkLoginData(String u, String p)
     {
-        boolean authenticate = false;
-        if(users.containsValue(u) == false && users.containsValue(p) == false)
-        {
-            return authenticate;
-        }
-        
-        else
-        {
-            authenticate = true;
-            return authenticate;
-        }
+        ProxyFile prox = new ProxyFile();
+        return prox.authenticateAdmin(p);
     }
     
     
     public void loginSystem()
     {
-        String user;
-        String pass;
-        boolean check;
-        Scanner scan = new Scanner(System.in);
-        LoginContext loginContext = new LoginContext();
-        
-        System.out.println("Welcome back Admin. Please enter your username with special admin passkey.");
-        user = scan.nextLine();
-        pass = scan.nextLine();
-        check = checkLoginData(user,pass);
-        if(check == true)
+        String val;
+        boolean exit = false;
+        while(!exit) {
+        System.out.println("**************************************");
+        System.out.println("Welcome back admin! Please type in your designated password!");
+        System.out.println("**************************************");
+        val = scan.nextLine();
+        boolean successful = checkLoginData(null,val);
+        if(successful)
         {
-            loginContext.setLoginStrategy(new AdminStrategy());
-            boolean temp = loginContext.performLogin();
+            admin.setLoginStrategy(new AdminStrategy());
+            exit = admin.performLogin(null);
+            admin.performLogout();
         }
         else
         {
-            loginContext.setLoginStrategy(new AdminStrategy());
-            loginContext.performLogout();
+            admin.setLoginStrategy(new AdminStrategy());
+            admin.performLogout();
+            exit = true;
         }
+    }
     }
     
 }

@@ -6,8 +6,7 @@ import java.util.Scanner;
  * @version (a version number or a date)
  */
 public class CreditScoreBuilder implements Builder
-{
-    private Credit_Score credit = new Credit_Score(); 
+{ 
     Scanner scan = new Scanner(System.in); 
     String val;
     int amt;
@@ -15,13 +14,16 @@ public class CreditScoreBuilder implements Builder
     double max = 800.0;
     double eval_score = base;
     double init_eval = base;
+    ReportCalculation set_score = new ReportCalculation();
     
     public void buildpaymentHistory(float input)
     {
         boolean again = false;
         
         while(!again){
-            System.out.println("Do you have any missed payments, bankrupcies, and/or defaults? (y/n) \n");
+            System.out.println("**************************************");
+            System.out.println("Do you have any missed payments, bankrupcies, and/or defaults? (y/n) ");
+            System.out.println("**************************************\n\n");
             val = scan.nextLine();
         if(val.equals("n"))
         {
@@ -34,7 +36,9 @@ public class CreditScoreBuilder implements Builder
             try
             {
                 eval_score = (max - base) * 0.35;
-               System.out.println("How many years has it been since any missed payments, bankrupcies, and/or defaults? (less than a year = 1) \n");
+                System.out.println("**************************************");
+               System.out.println("How many years has it been since any missed payments, bankrupcies, and/or defaults? (less than a year = 1) ");
+               System.out.println("**************************************\n\n");
                amt = scan.nextInt(); 
                if(amt > 0)
                {
@@ -48,7 +52,9 @@ public class CreditScoreBuilder implements Builder
                     {
                         eval_score *= 0.5;
                     }
-                   System.out.println("How many incurred?\n");
+                   System.out.println("**************************************");
+                    System.out.println("How many incurred?\n");
+                    System.out.println("**************************************\n\n");
                    amt = scan.nextInt();
                    if(amt > 0)
                    {
@@ -58,11 +64,22 @@ public class CreditScoreBuilder implements Builder
                        }
                        again = true;
                    }
+                    else
+                {
+                    System.out.println("**************************************");
+                    System.out.println("Value has to be greater than zero. ");
+                    System.out.println("**************************************\n\n");
+                    scan.nextLine();
+                    again = false;
+                }
                    
             }
                 else
                 {
-                    System.out.println("Value has to be greater than zero.\n");
+                    System.out.println("**************************************");
+                    System.out.println("Value has to be greater than zero. ");
+                    System.out.println("**************************************\n\n");
+                    scan.nextLine();
                     again = false;
                 }
                 
@@ -70,7 +87,9 @@ public class CreditScoreBuilder implements Builder
             
             catch(Exception e)
             {
-                System.out.println("Please type in a numerical amount.\n");
+                System.out.println("**************************************");
+                System.out.println("Please type in a numerical amount. ");
+                System.out.println("**************************************\n\n");
                 scan.nextLine();
                 again = false;
             }
@@ -79,7 +98,9 @@ public class CreditScoreBuilder implements Builder
         
         else
         {
-            System.out.println("Try again.\n");
+            System.out.println("**************************************");
+            System.out.println("Try again. ");
+            System.out.println("**************************************\n\n");
         }
         
     }
@@ -94,7 +115,9 @@ public class CreditScoreBuilder implements Builder
             
             try
             { 
-                System.out.println("How much credit is owed? (type without percent) \n");
+                System.out.println("**************************************");
+                System.out.println("How much credit is owed? (type without percent) ");
+                System.out.println("**************************************\n\n");
                 amt = scan.nextInt();
                 if(amt == 0)
                 {
@@ -125,14 +148,18 @@ public class CreditScoreBuilder implements Builder
                 
                 else
                 {
-                    System.out.println("Value has to be greater than zero.\n");
+                    System.out.println("**************************************");
+                    System.out.println("Value has to be greater than or equal zero. ");
+                    System.out.println("**************************************\n\n");
                     again = false;
                 }
             }
             
             catch(Exception e)
             {
-                System.out.println("Please type in a numerical amount.\n");
+                System.out.println("**************************************");
+                System.out.println("Please type in a numerical amount. ");
+                System.out.println("**************************************\n\n");
                 scan.nextLine();
                 again = false;
             }
@@ -147,7 +174,9 @@ public class CreditScoreBuilder implements Builder
         {
             while(!again)
             {
-                System.out.println("How long have you had a form of credit? \n");
+                System.out.println("**************************************");
+                System.out.println("How long have you had a form of credit? (in years) ");
+                System.out.println("**************************************\n\n");
                 amt = scan.nextInt();
                 if(amt == 0)
                 {
@@ -176,14 +205,18 @@ public class CreditScoreBuilder implements Builder
                 }
                 else
                 {
-                    System.out.println("Value has to be greater than zero.\n");
+                    System.out.println("**************************************");
+                    System.out.println("Value has to be greater than or equal to zero. ");
+                    System.out.println("**************************************\n\n");
                     again = false;
                 }
             }
         }
         catch(Exception e)
         {
-            System.out.println("Please type in a numerical amount.\n");
+            System.out.println("**************************************");
+            System.out.println("Please type in a numerical amount. ");
+            System.out.println("**************************************\n\n");
             scan.nextLine();
             again = false;
         }
@@ -196,7 +229,9 @@ public class CreditScoreBuilder implements Builder
         {
             while(!again)
             {
-                System.out.println("How many different types of credit do you have? \n");
+                System.out.println("**************************************");
+                System.out.println("How many different types of credit do you have? ");
+                System.out.println("**************************************\n\n");
                 amt = scan.nextInt();
                 if(amt == 0)
                 {
@@ -228,14 +263,18 @@ public class CreditScoreBuilder implements Builder
                 }
                 else
                 {
-                    System.out.println("Value has to be greater than zero.\n");
+                    System.out.println("**************************************");
+                    System.out.println("Value has to be greater than or equal to zero. ");
+                    System.out.println("**************************************\n\n");
                     again = false;
                 }
             }
         }
         catch(Exception e)
         {
+            System.out.println("**************************************");
             System.out.println("Please type in a numerical amount.\n");
+            System.out.println("**************************************\n\n");
             scan.nextLine();
             again = false;
         }
@@ -248,7 +287,9 @@ public class CreditScoreBuilder implements Builder
         {
             while(!again)
             {
-                System.out.println("How frequently have you opened new credit in the last year? \n");
+                System.out.println("**************************************");
+                System.out.println("How frequently have you opened new credit in the last year? ");
+                System.out.println("**************************************\n\n");
                 amt = scan.nextInt();
                 if(amt == 0)
                 {
@@ -261,7 +302,7 @@ public class CreditScoreBuilder implements Builder
                     eval_score += init_eval;
                     again = true;
                 }
-                else if (amt > 4 && amt <= 7)
+                else if (amt >= 4 && amt <= 7)
                 {
                     init_eval *= 0.5;
                     eval_score += init_eval;
@@ -282,14 +323,21 @@ public class CreditScoreBuilder implements Builder
                 }
                 else
                 {
-                    System.out.println("Value has to be greater than zero.\n");
+                    System.out.println("**************************************");
+                    System.out.println("Value has to be greater than or equal to zero. ");
+                    System.out.println("**************************************\n\n");
                     again = false;
                 }
             }
+            
+            eval_score += 300;
+            set_score.setScore(eval_score);
         }
         catch(Exception e)
         {
-            System.out.println("Please type in a numerical amount.\n");
+            System.out.println("**************************************");
+            System.out.println("Please type in a numerical amount. ");
+            System.out.println("**************************************\n\n");
             scan.nextLine();
             again = false;
         }

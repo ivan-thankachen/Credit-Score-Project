@@ -13,7 +13,10 @@ public class FirstCharNumState implements ParameterState
        
        if(num && stat)
        {
+           System.out.println("**************************************");
            System.out.println("You cannot have a number as the first character of your username.");
+           System.out.println("**************************************\n\n");
+           
        }
        
        return !num;

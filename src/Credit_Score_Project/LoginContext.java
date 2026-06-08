@@ -14,9 +14,9 @@ public class LoginContext
         this.loginStrategy = lc;
     }
     
-    public boolean performLogin()
+    public boolean performLogin(String user)
     {
-        return loginStrategy.login();
+        return loginStrategy.login(user);
     }
     
     public void performLogout()

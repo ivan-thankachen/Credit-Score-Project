@@ -21,12 +21,19 @@ public class AlreadyExistsState implements ParameterState
             while((line = buf.readLine()) != null)
             {
                 colon = line.indexOf(":");
-                user = line.substring(0,colon);
-                if(u.equals(user))
+                if(colon != -1)
                 {
-                    if(stat)
-                        System.out.println("Username is already taken.");
-                    return false;
+                    user = line.substring(0,colon);
+                    if(u.equals(user))
+                    {
+                        if(stat)
+                        {
+                            System.out.println("**************************************");
+                            System.out.println("Username is already taken.");
+                            System.out.println("**************************************\n\n");
+                        }
+                        return false;
+                    }
                 }
             }
             
@@ -35,7 +42,9 @@ public class AlreadyExistsState implements ParameterState
         
         catch (IOException e)
         {
+            System.out.println("**************************************");
             System.out.println("Issue with reading file, contact administrator.");
+            System.out.println("**************************************\n\n");
             return false;
         }
     }

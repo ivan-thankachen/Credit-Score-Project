@@ -12,7 +12,9 @@ public class ColonState implements ParameterState
        boolean is_colon = (u.indexOf(":") == -1 && p.indexOf(":") == -1);
        if(!is_colon && stat)
        {
+           System.out.println("**************************************");
            System.out.println("There cannot be any colons in your credentials.");
+           System.out.println("**************************************\n\n");
        }
        
        return is_colon;

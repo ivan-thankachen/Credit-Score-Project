@@ -22,3 +22,7 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+src/Credit_Score_Project/user_scores.txt
+src/Credit_Score_Project/credit_admin.txt
+src/Credit_Score_Project/users.txt
+src/Credit_Score_Project/users.txt

@@ -13,6 +13,10 @@ public class CreditScoreDirector
     CreditHistoryCommand c3 = new CreditHistoryCommand();
     NewCreditCommand c4 = new NewCreditCommand();
     PaymentHistoryCommand c5 = new PaymentHistoryCommand();
+    ReportCalculation display = new ReportCalculation();
+    ProxyFile prox = new ProxyFile();
+    String prov;
+    double score;
     public void addCommand()
     {
         commands.add(c5);
@@ -21,11 +25,15 @@ public class CreditScoreDirector
         commands.add(c1);
         commands.add(c4);
     }
-    public void construct(Builder builder)
+    public void construct(Builder builder,String user)
     {
         for(Command cmd:commands)
         {
             cmd.execute((CreditScoreBuilder) builder);
         }
+        prov = display.getCreditProvider();
+        score = display.getScore();
+        prox.writeScoreFile(user,score);
+        display.printReport(user,prov,score);
     }
 }

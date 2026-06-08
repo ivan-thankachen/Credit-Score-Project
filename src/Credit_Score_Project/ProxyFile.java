@@ -26,4 +26,24 @@ public class ProxyFile implements FileInterface
         return clientcheck;
     }
     
+    public boolean authenticateAdmin(String pass)
+    {
+        boolean admincheck = realFile.authenticateAdmin(pass);
+        return admincheck;
+    }
+    public void writeScoreFile(String user, double score)
+    {
+        realFile.writeScoreFile(user,score);
+    }
+    
+    public void readScoreFile()
+    {
+        realFile.readScoreFile();
+    }
+    
+    public void sortFile()
+    {
+        realFile.sortFile();
+    }
+    
 }

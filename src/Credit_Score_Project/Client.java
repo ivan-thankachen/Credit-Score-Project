@@ -42,21 +42,30 @@ public class Client extends Login
         if(!user_length && !pass_length)
         {
             if(stat){
-                System.out.println("The username doesn't fit the 8 - 15 character requirement.");
-                System.out.println("The password doesn't fit the 10 - 15 character requirement.");}
+                System.out.println("**************************************");
+                System.out.println("The username doesn't fit the 8 - 15 character requirement.\n");
+                System.out.println("The password doesn't fit the 10 - 15 character requirement.\n");
+                System.out.println("**************************************\n\n");
+            }
         }
         
         else if(!pass_length)
         {
             if(stat)
-                System.out.println("The password doesn't fit the 10 - 15 character requirement.");
+            {
+                System.out.println("**************************************");
+                System.out.println("The password doesn't fit the 10 - 15 character requirement.\n");
+                System.out.println("**************************************\n\n");
+            }
         }
         
         else if(!user_length)
         {
             if(stat)
             {
-                System.out.println("The username doesn't fit the 8 - 15 character requirement.");
+                System.out.println("**************************************");
+                System.out.println("The username doesn't fit the 8 - 15 character requirement.\n");
+                System.out.println("**************************************\n\n");
             }
         }
         
@@ -65,14 +74,21 @@ public class Client extends Login
             context.set(new ColonState());
             colon = context.check(u,p,stat);
             
+            if(colon)
+            {
             context.set(new FirstCharNumState());
             firstnum = context.check(u,p,stat);
+                if(firstnum)
+                {
+                    context.set(new AlreadyExistsState());
+                    no_exist = context.check(u,p,stat);
+                    paramcheck = colon && firstnum && no_exist;
+                    return user_length && pass_length && paramcheck;
+                }
+            }
             
-            context.set(new AlreadyExistsState());
-            no_exist = context.check(u,p,stat);
             
-            paramcheck = colon && firstnum && no_exist;
-            return user_length && pass_length && paramcheck;
+            
         }
         
         return false;
@@ -94,30 +110,40 @@ public class Client extends Login
         LoginContext loginContext = new LoginContext();
         
         while(!exit) {
-        
-        System.out.println("Welcome! Are you new to the program? (yes/no) \n ");
+        System.out.println("**************************************");
+        System.out.println("Welcome! Are you new to the program? (yes/no)");
+        System.out.println("**************************************\n\n");
         val = scan.nextLine();
         if(val.equals("yes"))
         {
-            System.out.println("Please enter your username. \n");
+            System.out.println("**************************************");
+            System.out.println("Please enter your username. ");
+            System.out.println("**************************************\n\n");
             user = scan.nextLine();
-            System.out.println("Please enter your password. \n");
+            System.out.println("**************************************");
+            System.out.println("Please enter your password. ");
+            System.out.println("**************************************\n\n");
             pass = scan.nextLine();
             
             if(checkParameters(user,pass,false))
             {
                 storeLoginData(user,pass);
                 loginContext.setLoginStrategy(new ClientStrategy());
-                exit = loginContext.performLogin();
+                exit = loginContext.performLogin(user);
+                loginContext.performLogout(); 
             }
             
             else
             {
                 while(!checkParameters(user,pass,true))
                 {
-                    System.out.println("Please enter your username.\n");
+                    System.out.println("**************************************");
+                    System.out.println("Please enter your username. ");
+                    System.out.println("**************************************\n\n");
                     user = scan.nextLine();
-                    System.out.println("Please enter your password.\n");
+                    System.out.println("**************************************");
+                    System.out.println("Please enter your password. ");
+                    System.out.println("**************************************\n\n");
                     pass = scan.nextLine();
                 }
                 
@@ -125,26 +151,35 @@ public class Client extends Login
                 {
                     storeLoginData(user,pass);
                     loginContext.setLoginStrategy(new ClientStrategy());
-                    exit = loginContext.performLogin();
+                    exit = loginContext.performLogin(user);
+                    loginContext.performLogout(); 
                 }
             }
             
         }
         else if (val.equals("no"))
         {
-            System.out.println("Please enter a username.\n");
+            System.out.println("**************************************");
+            System.out.println("Please enter a username. ");
+            System.out.println("**************************************\n\n");
             user = scan.nextLine();
-            System.out.println("Please enter a password.\n");
+            System.out.println("**************************************");
+            System.out.println("Please enter a password. ");
+            System.out.println("**************************************\n\n");
             pass = scan.nextLine();
             check = checkLoginData(user,pass);
             if(check == true)
             {
                 loginContext.setLoginStrategy(new ClientStrategy());
-                exit = loginContext.performLogin();
+                exit = loginContext.performLogin(user);
+                loginContext.performLogout(); 
             }
             
             else
             {
+                System.out.println("**************************************");
+                System.out.println("Your username/password combo doesn't exist.");
+                System.out.println("**************************************\n\n");
                 loginContext.setLoginStrategy(new ClientStrategy());
                 loginContext.performLogout(); 
                 exit = true;
@@ -153,17 +188,14 @@ public class Client extends Login
         
         else
         {
-            exit = true;
+            System.out.println("**************************************");
+            System.out.println("Please type either yes or no. ");
+            System.out.println("**************************************\n\n");
         }
         
         
     }
     
-    if(exit)
-    {
-    loginContext.setLoginStrategy(new ClientStrategy());
-    loginContext.performLogout();
-}   
         
     }
 }
