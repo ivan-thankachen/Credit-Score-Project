@@ -36,4 +36,4 @@ Clear List of Design Patterns:
 3. Spring 5: Proxy Pattern and State Pattern
 
 
-Please read the README.txt in src!
+Please read the README.txt in src/Credit_Score_Project!
