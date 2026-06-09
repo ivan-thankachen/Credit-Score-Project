@@ -108,7 +108,7 @@ public class Client extends Login
         boolean param;
         boolean exit = false;
         LoginContext loginContext = new LoginContext();
-        
+        ProxyFile f = new ProxyFile();
         while(!exit) {
         System.out.println("**************************************");
         System.out.println("Welcome! Are you new to the program? (yes/no)");
