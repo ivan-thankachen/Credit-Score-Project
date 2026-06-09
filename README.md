@@ -18,6 +18,14 @@ I apologize for the late submission of Sprint 3 as I have definitely been less p
 Sprint 4
 I need to work on connecting all components to user, diagram a framework for a sure plan, and work on authentication and database grabbing for logins and corresponding credit scores.
 
+6/8/26
+Sprint 5
+My program should take user and password inputs, check for parameters, allow user to calculate credit score if allowed, display score with username and credit provider. On the admin side, admin password should be verified and allow admin to loop through users and get a count of how many users are in each score category.
+
+6/8
+Final Submission
+Everything in the program should be running correctly after making a copy of the repo and testing it in a different folder. A potential bug could be that the files users.txt and user_score.txt aren't created, but the separate copy did prove they could be created. 
+
 
 
 
