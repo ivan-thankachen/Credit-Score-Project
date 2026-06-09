@@ -2,10 +2,9 @@ import java.io.*;
 import java.util.*;
 public class RealFile implements FileInterface
 {
-    String path = System.getProperty("user.dir");
-    private File storage = new File(path + "\\users.txt");
-    private File admin_file = new File(path + "\\credit_admin.txt");
-    private File score_file = new File(path + "\\user_scores.txt");
+    private File storage = new File("users.txt");
+    private File admin_file = new File("credit_admin.txt");
+    private File score_file = new File("user_scores.txt");
     private boolean file_loaded = false;
     public RealFile()
     {
